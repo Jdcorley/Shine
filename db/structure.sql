@@ -171,6 +171,27 @@ CREATE UNIQUE INDEX index_customers_on_email ON public.customers USING btree (em
 
 
 --
+-- Name: index_customers_on_lower_email; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_customers_on_lower_email ON public.customers USING btree (lower((email)::text));
+
+
+--
+-- Name: index_customers_on_lower_first_name_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_customers_on_lower_first_name_varchar_pattern_ops ON public.customers USING btree (lower((first_name)::text) varchar_pattern_ops);
+
+
+--
+-- Name: index_customers_on_lower_last_name_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_customers_on_lower_last_name_varchar_pattern_ops ON public.customers USING btree (lower((last_name)::text) varchar_pattern_ops);
+
+
+--
 -- Name: index_customers_on_username; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -201,6 +222,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190506221807'),
 ('20190507113422'),
 ('20190507114900'),
-('20190507130347');
+('20190507130347'),
+('20190508221201');
 
 
